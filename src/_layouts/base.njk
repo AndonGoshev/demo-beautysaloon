@@ -7,9 +7,9 @@
             {% if title %}{{ title }} | {% endif %}Beauty Place by Silvia Kasabova
         </title>
         <meta name="description" content="{% if description %}{{ description }}{% else %}Професионални козметични услуги - фризьорство, маникюр, грим{% endif %}">
-        
+
         <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
         <!-- Stylesheets -->
@@ -19,7 +19,10 @@
         <!-- Open Graph meta tags -->
         <meta property="og:title" content="{% if title %}{{ title }}{% else %}Beauty Place by Silvia Kasabova{% endif %}"/>
         <meta property="og:description" content="{% if description %}{{ description }}{% else %}Професионални козметични услуги - фризьорство, маникюр, грим{% endif %}"/>
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="Beauty Place by S. Kasabova"/>
+
+        <meta property="og:image" content="https://andongoshev.github.io/demo-bautysaloon/assets/images/beauty-saloon.webp" />
+
 
         <script src="https://cdn.tailwindcss.com"></script>
 
@@ -32,7 +35,7 @@
         <header class="fixed w-full z-50 transition-all duration-300" id="header">
             <!-- Navigation Background -->
             <div class="absolute inset-0 bg-beauty-warm-white/95 backdrop-blur-md border-b border-beauty-soft-brown/20"></div>
-            
+
             <nav class="relative max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex items-center">
@@ -92,7 +95,7 @@
                         <a href="#services" class="mobile-nav-link">Услуги</a>
                         <a href="#gallery" class="mobile-nav-link">Галерия</a>
                         <a href="#contact" class="mobile-nav-link">Контакти</a>
-                        
+
                         <div class="pt-6 border-t border-beauty-soft-brown/20">
                             <a href="tel:+359888123456" class="flex items-center space-x-3 text-beauty-deep-brown hover:text-beauty-rose-gold transition-colors duration-300 mb-4">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -141,10 +144,18 @@
                     <div>
                         <h4 class="text-lg font-bold mb-6">Услуги</h4>
                         <ul class="space-y-3 text-beauty-soft-brown">
-                            <li><a href="#services" class="hover:text-beauty-rose-gold transition-colors duration-300">Фризьорство</a></li>
-                            <li><a href="#services" class="hover:text-beauty-rose-gold transition-colors duration-300">Маникюр</a></li>
-                            <li><a href="#services" class="hover:text-beauty-rose-gold transition-colors duration-300">Грим</a></li>
-                            <li><a href="#gallery" class="hover:text-beauty-rose-gold transition-colors duration-300">Галерия</a></li>
+                            <li>
+                                <a href="#services" class="hover:text-beauty-rose-gold transition-colors duration-300">Фризьорство</a>
+                            </li>
+                            <li>
+                                <a href="#services" class="hover:text-beauty-rose-gold transition-colors duration-300">Маникюр</a>
+                            </li>
+                            <li>
+                                <a href="#services" class="hover:text-beauty-rose-gold transition-colors duration-300">Грим</a>
+                            </li>
+                            <li>
+                                <a href="#gallery" class="hover:text-beauty-rose-gold transition-colors duration-300">Галерия</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -191,22 +202,22 @@
         <!-- Navigation Styles -->
         <style>
             .nav-link {
-                @apply text-beauty-deep-brown hover:text-beauty-rose-gold font-medium transition-all duration-300 relative;
+                @apply text-beauty-deep-brown hover: text-beauty-rose-gold font-medium transition-all duration-300 relative;
             }
-            
+
             .nav-link::after {
                 content: '';
                 @apply absolute bottom-0 left-0 w-0 h-0.5 bg-beauty-rose-gold transition-all duration-300;
             }
-            
+
             .nav-link:hover::after {
                 @apply w-full;
             }
-            
+
             .mobile-nav-link {
-                @apply block text-beauty-deep-brown hover:text-beauty-rose-gold font-medium text-lg transition-colors duration-300;
+                @apply block text-beauty-deep-brown hover: text-beauty-rose-gold font-medium text-lg transition-colors duration-300;
             }
-            
+
             /* Scroll effect for header */
             .header-scrolled {
                 @apply bg-beauty-warm-white/98 shadow-lg;
@@ -218,35 +229,40 @@
             // Mobile menu toggle
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+
             mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+                mobileMenu
+                    .classList
+                    .toggle('hidden');
             });
 
             // Header scroll effect
             const header = document.getElementById('header');
-            
+
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
-                    header.classList.add('header-scrolled');
+                    header
+                        .classList
+                        .add('header-scrolled');
                 } else {
-                    header.classList.remove('header-scrolled');
+                    header
+                        .classList
+                        .remove('header-scrolled');
                 }
             });
 
             // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+            document
+                .querySelectorAll('a[href^="#"]')
+                .forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({behavior: 'smooth', block: 'start'});
+                        }
+                    });
                 });
-            });
         </script>
     </body>
 </html>
